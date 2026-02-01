@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Kareja 💕</title>
+    <title>Happy Birthday Kareja 💖</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,8 +20,8 @@
             color: white;
         }
 
-        /* ========== FLOATING HEARTS ========== */
-        .hearts-container {
+        /* ========== FLOATING KAREJA 💖 ========== */
+        .floating-container {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -30,9 +30,101 @@
             z-index: 0;
         }
 
-        .heart {
+        .floating-name {
             position: absolute;
-            font-size: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+            color: #ff6b6b;
+            opacity: 0.7;
+            white-space: nowrap;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            animation: floatName 20s linear infinite;
+        }
+
+        .floating-name.style1 {
+            color: #ff6b6b;
+        }
+
+        .floating-name.style2 {
+            color: #ff9ff3;
+        }
+
+        .floating-name.style3 {
+            color: #feca57;
+        }
+
+        .floating-name.style4 {
+            color: #ff85a2;
+        }
+
+        .floating-name.style5 {
+            color: #f8a5c2;
+        }
+
+        @keyframes floatName {
+            0% {
+                transform: translateY(100vh) rotate(-10deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.7;
+            }
+            95% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(10deg);
+                opacity: 0;
+            }
+        }
+
+        /* Horizontal floating */
+        .floating-name.horizontal {
+            animation: floatNameHorizontal 25s linear infinite;
+        }
+
+        @keyframes floatNameHorizontal {
+            0% {
+                transform: translateX(-100%) rotate(-5deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.6;
+            }
+            95% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateX(100vw) rotate(5deg);
+                opacity: 0;
+            }
+        }
+
+        /* Diagonal floating */
+        .floating-name.diagonal {
+            animation: floatNameDiagonal 22s linear infinite;
+        }
+
+        @keyframes floatNameDiagonal {
+            0% {
+                transform: translate(-100%, 100vh) rotate(-15deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.5;
+            }
+            95% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(100vw, -100vh) rotate(15deg);
+                opacity: 0;
+            }
+        }
+
+        /* Floating hearts too */
+        .floating-heart {
+            position: absolute;
             animation: floatHeart 15s linear infinite;
             opacity: 0.6;
         }
@@ -119,10 +211,30 @@
             margin: 20px 0;
         }
 
+        /* Special name highlight */
+        .name-highlight {
+            display: inline-block;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(4rem, 10vw, 8rem);
+            background: linear-gradient(45deg, #ff6b6b, #ff9ff3, #feca57, #ff6b6b);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 3s ease infinite, pulse 2s ease infinite;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+            margin: 20px 0;
+        }
+
         @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .subtitle {
@@ -193,6 +305,13 @@
         .letter-content .highlight {
             color: #ff6b6b;
             font-weight: 600;
+        }
+
+        .letter-content .kareja-inline {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            font-weight: bold;
         }
 
         /* ========== QUOTES SECTION ========== */
@@ -637,10 +756,25 @@
             animation: pulse 1s infinite;
         }
 
+        /* ========== CLICK KAREJA EFFECT ========== */
+        .click-kareja {
+            position: fixed;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+            color: #ff6b6b;
+            pointer-events: none;
+            z-index: 9999;
+            white-space: nowrap;
+        }
+
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
             .main-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+
+            .name-highlight {
+                font-size: 4rem;
             }
             
             .love-letter {
@@ -669,12 +803,16 @@
                 min-width: 80px;
                 padding: 15px 20px;
             }
+
+            .floating-name {
+                font-size: 1rem !important;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Hearts Background -->
-    <div class="hearts-container" id="hearts"></div>
+    <!-- Floating "Kareja 💖" Background -->
+    <div class="floating-container" id="floatingContainer"></div>
     
     <!-- Stars Background -->
     <div class="stars" id="stars"></div>
@@ -684,7 +822,7 @@
         <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</button>
     </div>
 
-    <!-- Background Music - Replace with your song URL -->
+    <!-- Background Music -->
     <audio id="bgMusic" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
@@ -693,7 +831,8 @@
         <!-- ========== HERO SECTION ========== -->
         <section class="hero">
             <div class="cake-emoji">🎂</div>
-            <h1 class="main-title">Happy Birthday My Love!</h1>
+            <h1 class="main-title">Happy Birthday</h1>
+            <div class="name-highlight">Kareja 💖</div>
             <p class="subtitle">To the most beautiful soul in my universe ✨</p>
             <div class="typewriter" id="typewriter"></div>
         </section>
@@ -701,6 +840,10 @@
         <!-- ========== LOVE LETTER ========== -->
         <section class="love-letter">
             <div class="letter-content">
+                <p>
+                    My Dearest <span class="kareja-inline">Kareja 💖</span>,
+                </p>
+                <br>
                 <p>
                     On this special day, I want you to know that you are the 
                     <span class="highlight">reason I smile</span>, the 
@@ -714,7 +857,7 @@
                 </p>
                 <br>
                 <p>
-                    From the day I met you, my life changed forever. 
+                    <span class="kareja-inline">Kareja</span>, from the day I met you, my life changed forever. 
                     You brought colors to my black and white world, 
                     and I can't imagine spending a single day without you by my side.
                 </p>
@@ -726,11 +869,11 @@
             <h2 class="countdown-title">💕 Our Love Story In Numbers 💕</h2>
             <div class="countdown-container">
                 <div class="countdown-box">
-                    <div class="countdown-number" id="days">263</div>
+                    <div class="countdown-number" id="days">365</div>
                     <div class="countdown-label">Days</div>
                 </div>
                 <div class="countdown-box">
-                    <div class="countdown-number" id="hours">6312</div>
+                    <div class="countdown-number" id="hours">8760</div>
                     <div class="countdown-label">Hours</div>
                 </div>
                 <div class="countdown-box">
@@ -746,41 +889,41 @@
 
         <!-- ========== BIRTHDAY QUOTES ========== -->
         <section class="quotes-section">
-            <h2 class="section-title">💝 Words From My Heart 💝</h2>
+            <h2 class="section-title">💝 For You, Kareja 💝</h2>
             <div class="quotes-grid">
                 <div class="quote-card">
                     <div class="quote-icon">🌟</div>
-                    <p class="quote-text">"You're not just a year older, you're a year more magical. Happy Birthday to my forever adventure partner!"</p>
+                    <p class="quote-text">"Kareja, you're not just a year older, you're a year more magical. Happy Birthday to my forever adventure partner!"</p>
                     <span class="quote-number">1</span>
                 </div>
                 
                 <div class="quote-card">
                     <div class="quote-icon">🦋</div>
-                    <p class="quote-text">"Like a butterfly brings spring, you bring color to my world. Today, the universe celebrates YOU!"</p>
+                    <p class="quote-text">"Like a butterfly brings spring, you bring color to my world. Today, the universe celebrates YOU, Kareja!"</p>
                     <span class="quote-number">2</span>
                 </div>
                 
                 <div class="quote-card">
                     <div class="quote-icon">🌙</div>
-                    <p class="quote-text">"If I could gift you the moon, I would. But for now, take my heart — it's been yours since day one."</p>
+                    <p class="quote-text">"If I could gift you the moon, I would. But for now, take my heart Kareja — it's been yours since day one."</p>
                     <span class="quote-number">3</span>
                 </div>
                 
                 <div class="quote-card">
                     <div class="quote-icon">🔥</div>
-                    <p class="quote-text">"You set my soul on fire in the most beautiful way. Here's to another year of burning bright together!"</p>
+                    <p class="quote-text">"Kareja, you set my soul on fire in the most beautiful way. Here's to another year of burning bright together!"</p>
                     <span class="quote-number">4</span>
                 </div>
                 
                 <div class="quote-card">
                     <div class="quote-icon">🎭</div>
-                    <p class="quote-text">"Life is a beautiful play, and I'm grateful you're my leading lady. Happy Birthday to my favorite human!"</p>
+                    <p class="quote-text">"Life is a beautiful play, and I'm grateful you're my leading lady, Kareja. Happy Birthday to my favorite human!"</p>
                     <span class="quote-number">5</span>
                 </div>
                 
                 <div class="quote-card">
                     <div class="quote-icon">💫</div>
-                    <p class="quote-text">"They say diamonds are rare, but they haven't met you. You're the rarest gem in the entire universe!"</p>
+                    <p class="quote-text">"They say diamonds are rare, but they haven't met you, Kareja. You're the rarest gem in the entire universe!"</p>
                     <span class="quote-number">6</span>
                 </div>
             </div>
@@ -788,38 +931,37 @@
 
         <!-- ========== PHOTO SLIDESHOW ========== -->
         <section class="gallery-section">
-            <h2 class="section-title">📸 Our Memories 📸</h2>
+            <h2 class="section-title">📸 Our Beautiful Memories 📸</h2>
             
             <div class="slideshow-container">
-                <!-- Slide 1 -->
                 <div class="slide active">
-                    <img src="img1.jpeg" alt="Our Memory 1" onerror="this.src='https://via.placeholder.com/700x500/ff6b6b/ffffff?text=Our+First+Photo+💕'">
+                    <img src="img22.jpeg" alt="Our Memory 1" onerror="this.src='https://via.placeholder.com/700x500/ff6b6b/ffffff?text=Kareja+💖'">
+                    
                 </div>
                 
-                <!-- Slide 2 -->
                 <div class="slide">
-                    <img src="img2.jpeg" alt="Our Memory 2" onerror="this.src='https://via.placeholder.com/700x500/feca57/ffffff?text=Adventures+Together+🌍'">
+                    <img src="img21.jpeg" alt="Our Memory 2" onerror="this.src='https://via.placeholder.com/700x500/feca57/ffffff?text=Adventures+with+Kareja+🌍'">
+                    
                 </div>
                 
-                <!-- Navigation Arrows -->
                 <button class="slide-arrow prev" onclick="changeSlide(-1)">❮</button>
                 <button class="slide-arrow next" onclick="changeSlide(1)">❯</button>
             </div>
             
-            <!-- Dots -->
             <div class="slide-dots">
                 <span class="dot active" onclick="goToSlide(0)"></span>
-                <span class="dot" onclick="goToSlide(1)"></span
+                <span class="dot" onclick="goToSlide(1)"></span>
             </div>
         </section>
 
+
         <!-- ========== REASONS I LOVE YOU ========== -->
         <section class="reasons-section">
-            <h2 class="section-title">💕 Why You're My Forever 💕</h2>
+            <h2 class="section-title">💕 Why Kareja Is My Forever 💕</h2>
             <div class="reasons-container">
                 <div class="reason-item">
                     <span class="reason-emoji">☀️</span>
-                    <span class="reason-text">Your smile is my sunrise and sunset — it lights up my darkest days</span>
+                    <span class="reason-text">Kareja, your smile is my sunrise and sunset — it lights up my darkest days</span>
                 </div>
                 <div class="reason-item">
                     <span class="reason-emoji">🎵</span>
@@ -827,7 +969,7 @@
                 </div>
                 <div class="reason-item">
                     <span class="reason-emoji">🏠</span>
-                    <span class="reason-text">You're not just my fiancée — you're my home, my peace, my everything</span>
+                    <span class="reason-text">Kareja, you're not just my fiancée — you're my home, my peace, my everything</span>
                 </div>
                 <div class="reason-item">
                     <span class="reason-emoji">🎢</span>
@@ -835,7 +977,7 @@
                 </div>
                 <div class="reason-item">
                     <span class="reason-emoji">💎</span>
-                    <span class="reason-text">You see the best in me, even when I can't see it myself</span>
+                    <span class="reason-text">Kareja, you see the best in me, even when I can't see it myself</span>
                 </div>
             </div>
         </section>
@@ -843,10 +985,10 @@
         <!-- ========== SPECIAL MESSAGE REVEAL ========== -->
         <section class="special-section">
             <button class="magic-button" onclick="revealMessage()">
-                ✨ Click For A Special Message ✨
+                ✨ Click For A Special Message, Kareja ✨
             </button>
             <div class="hidden-message" id="hiddenMessage">
-                <h2>My Promise To You</h2>
+                <h2>My Promise To You, Kareja 💖</h2>
                 <p>
                     Today and every day, I promise to love you unconditionally,
                     to support your dreams like they're my own,
@@ -859,7 +1001,7 @@
                     to celebrate every victory with you,
                     and to love you more with each passing day.
                     <br><br>
-                    Can't wait to spend forever with you. 💍
+                    Kareja, can't wait to spend forever with you. 💍
                     <br><br>
                     <strong style="color: #feca57;">Happy Birthday, Kareja! 🎂✨</strong>
                 </p>
@@ -868,7 +1010,7 @@
 
         <!-- ========== FOOTER ========== -->
         <footer class="footer">
-            <p class="footer-text">Forever & Always Yours</p>
+            <p class="footer-text">Forever & Always Yours, Kareja 💖</p>
             <div class="heart-beat">❤️</div>
             <p class="signature">
                 ~ With All My Love ~
@@ -880,19 +1022,36 @@
     </div>
 
     <script>
-        // ========== CREATE FLOATING HEARTS ==========
-        function createHearts() {
-            const container = document.getElementById('hearts');
-            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘', '💞'];
+        // ========== CREATE FLOATING "KAREJA 💖" ==========
+        function createFloatingKareja() {
+            const container = document.getElementById('floatingContainer');
+            const styles = ['style1', 'style2', 'style3', 'style4', 'style5'];
+            const animations = ['', 'horizontal', 'diagonal'];
+            const texts = ['Kareja 💖', 'Kareja ❤️', 'Kareja 💕', 'Kareja 💗', 'Kareja 💝', '💖 Kareja 💖'];
             
-            for (let i = 0; i < 25; i++) {
+            // Create 30 floating "Kareja 💖" elements
+            for (let i = 0; i < 30; i++) {
+                const element = document.createElement('div');
+                element.className = `floating-name ${styles[Math.floor(Math.random() * styles.length)]} ${animations[Math.floor(Math.random() * animations.length)]}`;
+                element.innerHTML = texts[Math.floor(Math.random() * texts.length)];
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                element.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                element.style.animationDelay = Math.random() * 20 + 's';
+                container.appendChild(element);
+            }
+
+            // Also add some floating hearts
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝'];
+            for (let i = 0; i < 15; i++) {
                 const heart = document.createElement('div');
-                heart.className = 'heart';
+                heart.className = 'floating-heart';
                 heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
                 heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
                 heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
                 heart.style.animationDelay = Math.random() * 10 + 's';
-                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
                 container.appendChild(heart);
             }
         }
@@ -915,14 +1074,14 @@
 
         // ========== TYPEWRITER EFFECT ==========
         const messages = [
-            "You make every day feel like magic... ✨",
-            "My heart chose you, and it always will... 💕",
+            "Kareja, you make every day feel like magic... ✨",
+            "My heart chose you, Kareja, and it always will... 💕",
             "Growing old with you is my greatest dream... 💍",
-            "You're the plot twist I never saw coming... 📖",
-            "Thank you for being my forever person... 🌟",
+            "Kareja, you're the plot twist I never saw coming... 📖",
+            "Thank you for being my forever person, Kareja... 🌟",
             "Every love song makes sense because of you... 🎵",
-            "You're my favorite notification... 📱",
-            "Home is wherever I'm with you... 🏠"
+            "Kareja, you're my favorite notification... 📱",
+            "Home is wherever I'm with you, Kareja... 🏠"
         ];
 
         let messageIndex = 0;
@@ -981,7 +1140,6 @@
             showSlide(currentSlide);
         }
 
-        // Auto-play slideshow
         setInterval(() => {
             currentSlide++;
             showSlide(currentSlide);
@@ -1010,14 +1168,8 @@
                 document.body.appendChild(confetti);
 
                 const animation = confetti.animate([
-                    { 
-                        transform: 'translateY(0) rotate(0deg)', 
-                        opacity: 1 
-                    },
-                    { 
-                        transform: `translateY(100vh) rotate(${Math.random() * 720}deg)`, 
-                        opacity: 0 
-                    }
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(100vh) rotate(${Math.random() * 720}deg)`, opacity: 0 }
                 ], {
                     duration: Math.random() * 2000 + 2000,
                     easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
@@ -1068,49 +1220,49 @@
             window.requestAnimationFrame(step);
         }
 
+        // ========== CLICK ANYWHERE FOR "KAREJA 💖" ==========
+        document.addEventListener('click', (e) => {
+            const karejaTexts = ['Kareja 💖', '💖 Kareja', 'I Love You Kareja', 'Kareja ❤️', '💕 Kareja 💕'];
+            
+            for (let i = 0; i < 3; i++) {
+                const kareja = document.createElement('div');
+                kareja.className = 'click-kareja';
+                kareja.innerHTML = karejaTexts[Math.floor(Math.random() * karejaTexts.length)];
+                kareja.style.left = e.clientX + 'px';
+                kareja.style.top = e.clientY + 'px';
+                kareja.style.fontSize = Math.random() * 1 + 1 + 'rem';
+                kareja.style.fontFamily = "'Dancing Script', cursive";
+                document.body.appendChild(kareja);
+
+                const animation = kareja.animate([
+                    { 
+                        transform: 'translate(0, 0) scale(1) rotate(0deg)', 
+                        opacity: 1 
+                    },
+                    { 
+                        transform: `translate(${Math.random() * 200 - 100}px, -150px) scale(1.5) rotate(${Math.random() * 40 - 20}deg)`, 
+                        opacity: 0 
+                    }
+                ], {
+                    duration: 1500,
+                    easing: 'ease-out'
+                });
+
+                animation.onfinish = () => kareja.remove();
+            }
+        });
+
         // ========== INITIALIZE ==========
         document.addEventListener('DOMContentLoaded', () => {
-            createHearts();
+            createFloatingKareja();
             createStars();
             setTimeout(typeWriter, 1000);
             showSlide(0);
             
-            // Animate countdown (customize these numbers!)
             setTimeout(() => {
-                animateValue('days', 0, 365, 2000);    // Days together
-                animateValue('hours', 0, 8760, 2000); // Hours together
+                animateValue('days', 0, 365, 2000);
+                animateValue('hours', 0, 8760, 2000);
             }, 500);
-        });
-
-        // ========== CLICK ANYWHERE FOR HEARTS ==========
-        document.addEventListener('click', (e) => {
-            for (let i = 0; i < 5; i++) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '❤️';
-                heart.style.position = 'fixed';
-                heart.style.left = e.clientX + 'px';
-                heart.style.top = e.clientY + 'px';
-                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-                heart.style.pointerEvents = 'none';
-                heart.style.zIndex = '9999';
-                document.body.appendChild(heart);
-
-                const animation = heart.animate([
-                    { 
-                        transform: 'translate(0, 0) scale(1)', 
-                        opacity: 1 
-                    },
-                    { 
-                        transform: `translate(${Math.random() * 100 - 50}px, -100px) scale(0)`, 
-                        opacity: 0 
-                    }
-                ], {
-                    duration: 1000,
-                    easing: 'ease-out'
-                });
-
-                animation.onfinish = () => heart.remove();
-            }
         });
     </script>
 </body>
