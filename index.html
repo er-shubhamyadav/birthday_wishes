@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Kareja 💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,1256 +14,272 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             min-height: 100vh;
-            overflow-x: hidden;
             color: white;
+            overflow-x: hidden;
         }
 
-        /* ========== FLOATING KAREJA 💖 ========== */
+        /* Floating Kareja 💖 */
         .floating-container {
             position: fixed;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            overflow: hidden;
             z-index: 0;
+            overflow: hidden;
         }
 
         .floating-name {
             position: absolute;
             font-family: 'Dancing Script', cursive;
-            font-weight: bold;
-            color: #ff6b6b;
-            opacity: 0.7;
-            white-space: nowrap;
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-            animation: floatName 20s linear infinite;
-        }
-
-        .floating-name.style1 {
-            color: #ff6b6b;
-        }
-
-        .floating-name.style2 {
-            color: #ff9ff3;
-        }
-
-        .floating-name.style3 {
-            color: #feca57;
-        }
-
-        .floating-name.style4 {
-            color: #ff85a2;
-        }
-
-        .floating-name.style5 {
-            color: #f8a5c2;
-        }
-
-        @keyframes floatName {
-            0% {
-                transform: translateY(100vh) rotate(-10deg);
-                opacity: 0;
-            }
-            5% {
-                opacity: 0.7;
-            }
-            95% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(10deg);
-                opacity: 0;
-            }
-        }
-
-        /* Horizontal floating */
-        .floating-name.horizontal {
-            animation: floatNameHorizontal 25s linear infinite;
-        }
-
-        @keyframes floatNameHorizontal {
-            0% {
-                transform: translateX(-100%) rotate(-5deg);
-                opacity: 0;
-            }
-            5% {
-                opacity: 0.6;
-            }
-            95% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateX(100vw) rotate(5deg);
-                opacity: 0;
-            }
-        }
-
-        /* Diagonal floating */
-        .floating-name.diagonal {
-            animation: floatNameDiagonal 22s linear infinite;
-        }
-
-        @keyframes floatNameDiagonal {
-            0% {
-                transform: translate(-100%, 100vh) rotate(-15deg);
-                opacity: 0;
-            }
-            5% {
-                opacity: 0.5;
-            }
-            95% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translate(100vw, -100vh) rotate(15deg);
-                opacity: 0;
-            }
-        }
-
-        /* Floating hearts too */
-        .floating-heart {
-            position: absolute;
-            animation: floatHeart 15s linear infinite;
+            font-size: 1.2rem;
             opacity: 0.6;
+            white-space: nowrap;
+            animation: floatUp 15s linear infinite;
         }
 
-        @keyframes floatHeart {
+        .floating-name.pink { color: #ff6b6b; }
+        .floating-name.gold { color: #feca57; }
+        .floating-name.rose { color: #ff9ff3; }
+
+        @keyframes floatUp {
             0% {
-                transform: translateY(100vh) rotate(0deg);
+                transform: translateY(100vh) rotate(-5deg);
                 opacity: 0;
             }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
             100% {
-                transform: translateY(-100vh) rotate(720deg);
+                transform: translateY(-100vh) rotate(5deg);
                 opacity: 0;
             }
         }
 
-        /* ========== STARS BACKGROUND ========== */
-        .stars {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* ========== MAIN CONTAINER ========== */
+        /* Main Content */
         .container {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* ========== HERO SECTION ========== */
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
         }
 
-        .cake-emoji {
-            font-size: 80px;
+        .cake {
+            font-size: 60px;
             animation: bounce 2s infinite;
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
 
-        .main-title {
+        .title {
             font-family: 'Dancing Script', cursive;
-            font-size: clamp(3rem, 8vw, 6rem);
-            background: linear-gradient(45deg, #ff6b6b, #feca57, #ff9ff3, #54a0ff, #5f27cd);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientFlow 5s ease infinite;
+            font-size: 3rem;
+            color: #feca57;
             margin: 20px 0;
         }
 
-        /* Special name highlight */
-        .name-highlight {
-            display: inline-block;
+        .name {
             font-family: 'Dancing Script', cursive;
-            font-size: clamp(4rem, 10vw, 8rem);
-            background: linear-gradient(45deg, #ff6b6b, #ff9ff3, #feca57, #ff6b6b);
-            background-size: 300% 300%;
+            font-size: 5rem;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #ff9ff3);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientFlow 3s ease infinite, pulse 2s ease infinite;
-            text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
-            margin: 20px 0;
+            animation: gradient 3s ease infinite;
         }
 
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            color: #feca57;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.5s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ========== TYPEWRITER ========== */
-        .typewriter {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: #feca57;
-            margin: 30px 0;
-            min-height: 80px;
-        }
-
-        .cursor {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        /* ========== LOVE LETTER ========== */
-        .love-letter {
+        /* Message Section */
+        .message {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 50px 40px;
+            padding: 40px;
             margin: 40px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .love-letter::before {
-            content: '💌';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 50px;
-        }
-
-        .letter-content {
-            font-size: 1.2rem;
-            line-height: 2;
             text-align: center;
-            color: #e8e8e8;
+            line-height: 2;
         }
 
-        .letter-content .highlight {
+        .message p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
             color: #ff6b6b;
             font-weight: 600;
         }
 
-        .letter-content .kareja-inline {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            color: #ff6b6b;
-            font-weight: bold;
-        }
-
-        /* ========== QUOTES SECTION ========== */
-        .quotes-section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #ff9ff3;
-        }
-
-        .quotes-grid {
+        /* Photos Section */
+        .photos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .quote-card {
-            background: linear-gradient(145deg, rgba(255,107,107,0.1), rgba(254,202,87,0.1));
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 0.8s ease forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .quote-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(255, 107, 107, 0.3);
-        }
-
-        .quote-card:nth-child(1) { animation-delay: 0.1s; }
-        .quote-card:nth-child(2) { animation-delay: 0.2s; }
-        .quote-card:nth-child(3) { animation-delay: 0.3s; }
-        .quote-card:nth-child(4) { animation-delay: 0.4s; }
-        .quote-card:nth-child(5) { animation-delay: 0.5s; }
-        .quote-card:nth-child(6) { animation-delay: 0.6s; }
-
-        @keyframes slideUp {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .quote-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .quote-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #fff;
-            font-style: italic;
-        }
-
-        .quote-number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            border-radius: 50%;
-            line-height: 30px;
-            font-weight: bold;
-            margin-top: 15px;
-            font-size: 0.9rem;
-        }
-
-        /* ========== REASONS SECTION ========== */
-        .reasons-section {
-            padding: 60px 0;
-        }
-
-        .reasons-container {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+            padding: 40px 0;
         }
 
-        .reason-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px 30px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            border-left: 4px solid;
-            transition: all 0.3s ease;
-        }
-
-        .reason-item:nth-child(1) { border-left-color: #ff6b6b; }
-        .reason-item:nth-child(2) { border-left-color: #feca57; }
-        .reason-item:nth-child(3) { border-left-color: #ff9ff3; }
-        .reason-item:nth-child(4) { border-left-color: #54a0ff; }
-        .reason-item:nth-child(5) { border-left-color: #5f27cd; }
-
-        .reason-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(10px);
-        }
-
-        .reason-emoji {
-            font-size: 2rem;
-        }
-
-        .reason-text {
-            font-size: 1.1rem;
-            color: #e8e8e8;
-        }
-
-        /* ========== PHOTO GALLERY ========== */
-        .gallery-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
+        .photo {
             aspect-ratio: 1;
-            background: linear-gradient(145deg, rgba(255,107,107,0.2), rgba(254,202,87,0.2));
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .gallery-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(255, 107, 107, 0.4);
-        }
-
-        .gallery-item img {
+        .photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        /* Quotes */
+        .quotes {
+            padding: 40px 0;
         }
 
-        .photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            font-size: 1.1rem;
-            text-align: center;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover .photo-caption {
-            transform: translateY(0);
-        }
-
-        /* Slideshow */
-        .slideshow-container {
-            position: relative;
-            max-width: 700px;
-            margin: 30px auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .slide {
-            display: none;
-            position: relative;
-        }
-
-        .slide.active {
-            display: block;
-            animation: fadeSlide 0.8s ease;
-        }
-
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: scale(1.1); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 30px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            font-size: 1.5rem;
-            text-align: center;
-            font-family: 'Dancing Script', cursive;
-        }
-
-        .slide-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            padding: 20px 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .slide-arrow:hover {
-            background: rgba(255, 107, 107, 0.8);
-        }
-
-        .slide-arrow.prev {
-            left: 0;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .slide-arrow.next {
-            right: 0;
-            border-radius: 10px 0 0 10px;
-        }
-
-        .slide-dots {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .dot {
-            height: 12px;
-            width: 12px;
-            margin: 0 5px;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            display: inline-block;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active,
-        .dot:hover {
-            background-color: #ff6b6b;
-            transform: scale(1.2);
-        }
-
-        /* ========== SPECIAL SECTION ========== */
-        .special-section {
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .magic-button {
-            padding: 20px 50px;
-            font-size: 1.2rem;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            border: none;
-            border-radius: 50px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.4);
-        }
-
-        .magic-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 50px rgba(255, 107, 107, 0.6);
-        }
-
-        .hidden-message {
-            display: none;
-            margin-top: 40px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            animation: revealMessage 1s ease forwards;
-        }
-
-        @keyframes revealMessage {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .hidden-message.show {
-            display: block;
-        }
-
-        .hidden-message h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-        }
-
-        .hidden-message p {
-            font-size: 1.2rem;
-            line-height: 2;
-            color: #e8e8e8;
-        }
-
-        /* ========== COUNTDOWN ========== */
-        .countdown-section {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .countdown-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: #feca57;
-            margin-bottom: 30px;
-        }
-
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .countdown-box {
+        .quote {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            padding: 20px 30px;
-            min-width: 100px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #ff6b6b;
         }
 
-        .countdown-number {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .quote-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
         }
 
-        .countdown-label {
-            font-size: 0.9rem;
-            color: #aaa;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* ========== FOOTER ========== */
+        /* Footer */
         .footer {
             text-align: center;
             padding: 60px 20px;
         }
 
-        .footer-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-        }
-
-        .heart-beat {
-            font-size: 50px;
+        .heart {
+            font-size: 40px;
             animation: heartbeat 1s infinite;
         }
 
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            35% { transform: scale(1); }
-            45% { transform: scale(1.1); }
-            55% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
         .signature {
-            margin-top: 20px;
-            color: #888;
-            font-size: 1.1rem;
-        }
-
-        /* ========== CONFETTI ========== */
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        /* ========== MUSIC PLAYER ========== */
-        .music-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-        }
-
-        .music-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .music-btn.playing {
-            animation: pulse 1s infinite;
-        }
-
-        /* ========== CLICK KAREJA EFFECT ========== */
-        .click-kareja {
-            position: fixed;
             font-family: 'Dancing Script', cursive;
-            font-weight: bold;
+            font-size: 1.5rem;
             color: #ff6b6b;
-            pointer-events: none;
-            z-index: 9999;
-            white-space: nowrap;
+            margin-top: 20px;
         }
 
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-
-            .name-highlight {
-                font-size: 4rem;
-            }
-            
-            .love-letter {
-                padding: 40px 20px;
-            }
-            
-            .quote-card {
-                padding: 20px;
-            }
-
-            .slide img {
-                height: 350px;
-            }
-
-            .reason-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-
-            .countdown-number {
-                font-size: 2rem;
-            }
-
-            .countdown-box {
-                min-width: 80px;
-                padding: 15px 20px;
-            }
-
-            .floating-name {
-                font-size: 1rem !important;
-            }
+        @media (max-width: 600px) {
+            .name { font-size: 3rem; }
+            .title { font-size: 2rem; }
+            .message { padding: 25px; }
         }
     </style>
 </head>
 <body>
-    <!-- Floating "Kareja 💖" Background -->
-    <div class="floating-container" id="floatingContainer"></div>
-    
-    <!-- Stars Background -->
-    <div class="stars" id="stars"></div>
-
-    <!-- Music Player -->
-    <div class="music-player">
-        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</button>
-    </div>
-
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
+    <!-- Floating Kareja 💖 -->
+    <div class="floating-container" id="floating"></div>
 
     <div class="container">
-        <!-- ========== HERO SECTION ========== -->
+        <!-- Hero -->
         <section class="hero">
-            <div class="cake-emoji">🎂</div>
-            <h1 class="main-title">Happy Birthday</h1>
-            <div class="name-highlight">Kareja 💖</div>
-            <p class="subtitle">To the most beautiful soul in my universe ✨</p>
-            <div class="typewriter" id="typewriter"></div>
+            <div class="cake">🎂</div>
+            <h1 class="title">Happy Birthday</h1>
+            <div class="name">Kareja 💖</div>
         </section>
 
-        <!-- ========== LOVE LETTER ========== -->
-        <section class="love-letter">
-            <div class="letter-content">
-                <p>
-                    My Dearest <span class="kareja-inline">Kareja 💖</span>,
-                </p>
-                <br>
-                <p>
-                    On this special day, I want you to know that you are the 
-                    <span class="highlight">reason I smile</span>, the 
-                    <span class="highlight">melody in my heart</span>, and the 
-                    <span class="highlight">dream I never want to wake up from</span>.
-                </p>
-                <br>
-                <p>
-                    Every moment with you feels like a beautiful poem written by the stars.
-                    You don't just complete me — you make me want to be better, every single day.
-                </p>
-                <br>
-                <p>
-                    <span class="kareja-inline">Kareja</span>, from the day I met you, my life changed forever. 
-                    You brought colors to my black and white world, 
-                    and I can't imagine spending a single day without you by my side.
-                </p>
-            </div>
-        </section>
-
-        <!-- ========== COUNTDOWN - Days Together ========== -->
-        <section class="countdown-section">
-            <h2 class="countdown-title">💕 Our Love Story In Numbers 💕</h2>
-            <div class="countdown-container">
-                <div class="countdown-box">
-                    <div class="countdown-number" id="days">263</div>
-                    <div class="countdown-label">Days</div>
-                </div>
-                <div class="countdown-box">
-                    <div class="countdown-number" id="hours">6312</div>
-                    <div class="countdown-label">Hours</div>
-                </div>
-                <div class="countdown-box">
-                    <div class="countdown-number" id="kisses">∞</div>
-                    <div class="countdown-label">Kisses</div>
-                </div>
-                <div class="countdown-box">
-                    <div class="countdown-number" id="love">1</div>
-                    <div class="countdown-label">True Love</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== BIRTHDAY QUOTES ========== -->
-        <section class="quotes-section">
-            <h2 class="section-title">💝 For You, Kareja 💝</h2>
-            <div class="quotes-grid">
-                <div class="quote-card">
-                    <div class="quote-icon">🌟</div>
-                    <p class="quote-text">"Kareja, you're not just a year older, you're a year more magical. Happy Birthday to my forever adventure partner!"</p>
-                    <span class="quote-number">1</span>
-                </div>
-                
-                <div class="quote-card">
-                    <div class="quote-icon">🦋</div>
-                    <p class="quote-text">"Like a butterfly brings spring, you bring color to my world. Today, the universe celebrates YOU, Kareja!"</p>
-                    <span class="quote-number">2</span>
-                </div>
-                
-                <div class="quote-card">
-                    <div class="quote-icon">🌙</div>
-                    <p class="quote-text">"If I could gift you the moon, I would. But for now, take my heart Kareja — it's been yours since day one."</p>
-                    <span class="quote-number">3</span>
-                </div>
-                
-                <div class="quote-card">
-                    <div class="quote-icon">🔥</div>
-                    <p class="quote-text">"Kareja, you set my soul on fire in the most beautiful way. Here's to another year of burning bright together!"</p>
-                    <span class="quote-number">4</span>
-                </div>
-                
-                <div class="quote-card">
-                    <div class="quote-icon">🎭</div>
-                    <p class="quote-text">"Life is a beautiful play, and I'm grateful you're my leading lady, Kareja. Happy Birthday to my favorite human!"</p>
-                    <span class="quote-number">5</span>
-                </div>
-                
-                <div class="quote-card">
-                    <div class="quote-icon">💫</div>
-                    <p class="quote-text">"They say diamonds are rare, but they haven't met you, Kareja. You're the rarest gem in the entire universe!"</p>
-                    <span class="quote-number">6</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== PHOTO SLIDESHOW ========== -->
-        <section class="gallery-section">
-            <h2 class="section-title">📸 Kareja ❤️ 📸</h2>
-            
-            <div class="slideshow-container">
-                <div class="slide active">
-                    <img src="img22.jpeg" alt="Our Memory 1" onerror="this.src='https://via.placeholder.com/700x500/ff6b6b/ffffff?text=Kareja+💖'">
-                    
-                </div>
-                
-                <div class="slide">
-                    <img src="img21.jpeg" alt="Our Memory 2" onerror="this.src='https://via.placeholder.com/700x500/feca57/ffffff?text=Adventures+with+Kareja+🌍'">
-                    
-                </div>
-                
-                <button class="slide-arrow prev" onclick="changeSlide(-1)">❮</button>
-                <button class="slide-arrow next" onclick="changeSlide(1)">❯</button>
-            </div>
-            
-            <div class="slide-dots">
-                <span class="dot active" onclick="goToSlide(0)"></span>
-                <span class="dot" onclick="goToSlide(1)"></span>
-            </div>
-        </section>
-
-
-        <!-- ========== REASONS I LOVE YOU ========== -->
-        <section class="reasons-section">
-            <h2 class="section-title">💕 Why Kareja Is My Forever 💕</h2>
-            <div class="reasons-container">
-                <div class="reason-item">
-                    <span class="reason-emoji">☀️</span>
-                    <span class="reason-text">Kareja, your smile is my sunrise and sunset — it lights up my darkest days</span>
-                </div>
-                <div class="reason-item">
-                    <span class="reason-emoji">🎵</span>
-                    <span class="reason-text">Your laugh is my favorite song — I could listen to it on repeat forever</span>
-                </div>
-                <div class="reason-item">
-                    <span class="reason-emoji">🏠</span>
-                    <span class="reason-text">Kareja, you're not just my fiancée — you're my home, my peace, my everything</span>
-                </div>
-                <div class="reason-item">
-                    <span class="reason-emoji">🎢</span>
-                    <span class="reason-text">With you, even ordinary moments become extraordinary adventures</span>
-                </div>
-                <div class="reason-item">
-                    <span class="reason-emoji">💎</span>
-                    <span class="reason-text">Kareja, you see the best in me, even when I can't see it myself</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== SPECIAL MESSAGE REVEAL ========== -->
-        <section class="special-section">
-            <button class="magic-button" onclick="revealMessage()">
-                ✨ Click For A Special Message, Kareja ✨
-            </button>
-            <div class="hidden-message" id="hiddenMessage">
-                <h2>My Promise To You, Kareja 💖</h2>
-                <p>
-                    Today and every day, I promise to love you unconditionally,
-                    to support your dreams like they're my own,
-                    to be your partner through every storm and sunshine,
-                    and to remind you how incredible you are —
-                    even when you forget.
-                    <br><br>
-                    I promise to make you laugh when you're sad,
-                    to hold your hand through the tough times,
-                    to celebrate every victory with you,
-                    and to love you more with each passing day.
-                    <br><br>
-                    Kareja, can't wait to spend forever with you. 💍
-                    <br><br>
-                    <strong style="color: #feca57;">Happy Birthday, Kareja! 🎂✨</strong>
-                </p>
-            </div>
-        </section>
-
-        <!-- ========== FOOTER ========== -->
-        <footer class="footer">
-            <p class="footer-text">Forever & Always Yours, Kareja 💖</p>
-            <div class="heart-beat">❤️</div>
-            <p class="signature">
-                ~ With All My Love ~
-                <br>
-                <!-- ✏️ CHANGE THIS TO YOUR NAME -->
-                <strong style="color: #ff6b6b;">Shubham</strong>
+        <!-- Love Message -->
+        <section class="message">
+            <p>My Dearest <span class="highlight">Kareja</span>,</p>
+            <p>
+                On this special day, I want you to know that you are the 
+                <span class="highlight">reason I smile</span> every single day.
             </p>
+            <p>
+                You're not just my fiancée — you're my best friend, 
+                my soulmate, and my everything. 💕
+            </p>
+            <p>
+                Thank you for being you. I love you more than words can say.
+            </p>
+        </section>
+
+        <!-- Photos -->
+        <section class="photos">
+            <div class="photo">
+                <img src="img22.jpeg" alt="Us" onerror="this.src='https://via.placeholder.com/300x300/ff6b6b/fff?text=💕'">
+            </div>
+            <div class="photo">
+                <img src="img21.jpeg" alt="Us" onerror="this.src='https://via.placeholder.com/300x300/feca57/fff?text=💖'">
+            </div>
+        </section>
+
+        <!-- Quotes -->
+        <section class="quotes">
+            <div class="quote">
+                <div class="quote-icon">🌟</div>
+                <p>"Kareja, you're not just a year older — you're a year more magical."</p>
+            </div>
+            <div class="quote">
+                <div class="quote-icon">🌙</div>
+                <p>"If I could gift you the moon, I would. But for now, take my heart — it's always been yours."</p>
+            </div>
+            <div class="quote">
+                <div class="quote-icon">💫</div>
+                <p>"They say diamonds are rare, but they haven't met you, Kareja."</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="heart">❤️</div>
+            <p class="signature">Forever Yours</p>
+            <p style="color: #888; margin-top: 10px;">— Shubham —</p>
         </footer>
     </div>
 
     <script>
-        // ========== CREATE FLOATING "KAREJA 💖" ==========
-        function createFloatingKareja() {
-            const container = document.getElementById('floatingContainer');
-            const styles = ['style1', 'style2', 'style3', 'style4', 'style5'];
-            const animations = ['', 'horizontal', 'diagonal'];
-            const texts = ['Kareja 💖', 'Kareja ❤️', 'Kareja 💕', 'Kareja 💗', 'Kareja 💝', '💖 Kareja 💖'];
-            
-            // Create 30 floating "Kareja 💖" elements
-            for (let i = 0; i < 30; i++) {
-                const element = document.createElement('div');
-                element.className = `floating-name ${styles[Math.floor(Math.random() * styles.length)]} ${animations[Math.floor(Math.random() * animations.length)]}`;
-                element.innerHTML = texts[Math.floor(Math.random() * texts.length)];
-                element.style.left = Math.random() * 100 + '%';
-                element.style.top = Math.random() * 100 + '%';
-                element.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
-                element.style.animationDuration = (Math.random() * 15 + 15) + 's';
-                element.style.animationDelay = Math.random() * 20 + 's';
-                container.appendChild(element);
-            }
+        // Create floating "Kareja 💖"
+        function createFloating() {
+            const container = document.getElementById('floating');
+            const colors = ['pink', 'gold', 'rose'];
+            const texts = ['Kareja 💖', 'Kareja ❤️', '💖 Kareja', 'Kareja 💕'];
 
-            // Also add some floating hearts
-            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝'];
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                heart.style.animationDelay = Math.random() * 10 + 's';
-                container.appendChild(heart);
+            for (let i = 0; i < 20; i++) {
+                const el = document.createElement('div');
+                el.className = `floating-name ${colors[i % 3]}`;
+                el.textContent = texts[Math.floor(Math.random() * texts.length)];
+                el.style.left = Math.random() * 100 + '%';
+                el.style.animationDuration = (Math.random() * 10 + 12) + 's';
+                el.style.animationDelay = Math.random() * 15 + 's';
+                el.style.fontSize = (Math.random() * 0.8 + 1) + 'rem';
+                container.appendChild(el);
             }
         }
 
-        // ========== CREATE STARS ==========
-        function createStars() {
-            const container = document.getElementById('stars');
-            
-            for (let i = 0; i < 150; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 2 + 's';
-                star.style.width = Math.random() * 3 + 1 + 'px';
-                star.style.height = star.style.width;
-                container.appendChild(star);
-            }
-        }
-
-        // ========== TYPEWRITER EFFECT ==========
-        const messages = [
-            "Kareja, you make every day feel like magic... ✨",
-            "My heart chose you, Kareja, and it always will... 💕",
-            "Growing old with you is my greatest dream... 💍",
-            "Kareja, you're the plot twist I never saw coming... 📖",
-            "Thank you for being my forever person, Kareja... 🌟",
-            "Every love song makes sense because of you... 🎵",
-            "Kareja, you're my favorite notification... 📱",
-            "Home is wherever I'm with you, Kareja... 🏠"
-        ];
-
-        let messageIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function typeWriter() {
-            const element = document.getElementById('typewriter');
-            const currentMessage = messages[messageIndex];
-            
-            if (isDeleting) {
-                element.innerHTML = currentMessage.substring(0, charIndex - 1) + '<span class="cursor">|</span>';
-                charIndex--;
-            } else {
-                element.innerHTML = currentMessage.substring(0, charIndex + 1) + '<span class="cursor">|</span>';
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 30 : 80;
-
-            if (!isDeleting && charIndex === currentMessage.length) {
-                typeSpeed = 2500;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                messageIndex = (messageIndex + 1) % messages.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(typeWriter, typeSpeed);
-        }
-
-        // ========== SLIDESHOW ==========
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-
-        function showSlide(index) {
-            if (index >= slides.length) currentSlide = 0;
-            if (index < 0) currentSlide = slides.length - 1;
-            
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-
-        function changeSlide(direction) {
-            currentSlide += direction;
-            showSlide(currentSlide);
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            showSlide(currentSlide);
-        }
-
-        setInterval(() => {
-            currentSlide++;
-            showSlide(currentSlide);
-        }, 4000);
-
-        // ========== REVEAL HIDDEN MESSAGE ==========
-        function revealMessage() {
-            const message = document.getElementById('hiddenMessage');
-            message.classList.add('show');
-            createConfetti();
-        }
-
-        // ========== CONFETTI BURST ==========
-        function createConfetti() {
-            const colors = ['#ff6b6b', '#feca57', '#ff9ff3', '#54a0ff', '#5f27cd', '#00d2d3', '#ff85a2'];
-            
-            for (let i = 0; i < 150; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = '-10px';
-                confetti.style.width = Math.random() * 10 + 5 + 'px';
-                confetti.style.height = Math.random() * 10 + 5 + 'px';
-                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                document.body.appendChild(confetti);
-
-                const animation = confetti.animate([
-                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
-                    { transform: `translateY(100vh) rotate(${Math.random() * 720}deg)`, opacity: 0 }
-                ], {
-                    duration: Math.random() * 2000 + 2000,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                });
-
-                animation.onfinish = () => confetti.remove();
-            }
-        }
-
-        // ========== MUSIC TOGGLE ==========
-        let isPlaying = false;
-        const music = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
-
-        function toggleMusic() {
-            if (isPlaying) {
-                music.pause();
-                musicBtn.innerHTML = '🎵';
-                musicBtn.classList.remove('playing');
-            } else {
-                music.play();
-                musicBtn.innerHTML = '🔊';
-                musicBtn.classList.add('playing');
-            }
-            isPlaying = !isPlaying;
-        }
-
-        // ========== PARALLAX EFFECT ==========
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            document.getElementById('stars').style.transform = `translateY(${scrolled * 0.3}px)`;
-        });
-
-        // ========== ANIMATE COUNTDOWN NUMBERS ==========
-        function animateValue(id, start, end, duration) {
-            const obj = document.getElementById(id);
-            if (obj.innerHTML === '∞' || obj.innerHTML === '1') return;
-            
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start);
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        // ========== CLICK ANYWHERE FOR "KAREJA 💖" ==========
-        document.addEventListener('click', (e) => {
-            const karejaTexts = ['Kareja 💖', '💖 Kareja', 'I Love You Kareja', 'Kareja ❤️', '💕 Kareja 💕'];
-            
-            for (let i = 0; i < 3; i++) {
-                const kareja = document.createElement('div');
-                kareja.className = 'click-kareja';
-                kareja.innerHTML = karejaTexts[Math.floor(Math.random() * karejaTexts.length)];
-                kareja.style.left = e.clientX + 'px';
-                kareja.style.top = e.clientY + 'px';
-                kareja.style.fontSize = Math.random() * 1 + 1 + 'rem';
-                kareja.style.fontFamily = "'Dancing Script', cursive";
-                document.body.appendChild(kareja);
-
-                const animation = kareja.animate([
-                    { 
-                        transform: 'translate(0, 0) scale(1) rotate(0deg)', 
-                        opacity: 1 
-                    },
-                    { 
-                        transform: `translate(${Math.random() * 200 - 100}px, -150px) scale(1.5) rotate(${Math.random() * 40 - 20}deg)`, 
-                        opacity: 0 
-                    }
-                ], {
-                    duration: 1500,
-                    easing: 'ease-out'
-                });
-
-                animation.onfinish = () => kareja.remove();
-            }
-        });
-
-        // ========== INITIALIZE ==========
-        document.addEventListener('DOMContentLoaded', () => {
-            createFloatingKareja();
-            createStars();
-            setTimeout(typeWriter, 1000);
-            showSlide(0);
-            
-            setTimeout(() => {
-                animateValue('days', 0, 365, 2000);
-                animateValue('hours', 0, 8760, 2000);
-            }, 500);
-        });
+        createFloating();
     </script>
 </body>
 </html>
